@@ -1,3 +1,4 @@
+import 'package:facebook_clone/story_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -76,13 +77,16 @@ class _FacebookCloneState extends State<FacebookClone> {
             SizedBox(
               width: 10,
             ),
-            Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Colors.grey[200]),
-              child: Icon(
-                Icons.maps_ugc,
-                color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.grey[200]),
+                child: Icon(
+                  Icons.maps_ugc,
+                  color: Colors.black,
+                ),
               ),
             ),
           ],
@@ -140,10 +144,13 @@ class _FacebookCloneState extends State<FacebookClone> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundImage: NetworkImage(
-                              'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                        InkWell(
+                          onTap: () {},
+                          child: CircleAvatar(
+                            radius: 25,
+                            backgroundImage: NetworkImage(
+                                'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                          ),
                         ),
                         SizedBox(
                           width: 10,
@@ -169,59 +176,68 @@ class _FacebookCloneState extends State<FacebookClone> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.videocam,
-                                  color: Colors.red,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text('Live'),
-                              ],
-                            ),
-                          ],
+                        InkWell(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.videocam,
+                                    color: Colors.red,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text('Live'),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                         VerticalDivider(
                           thickness: 1.0,
                         ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.collections,
-                                  color: Colors.green,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text('Photo'),
-                              ],
-                            )
-                          ],
+                        InkWell(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.collections,
+                                    color: Colors.green,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text('Photo'),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                         VerticalDivider(
                           thickness: 1.0,
                         ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.video_call,
-                                  color: Colors.purple,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text('Room'),
-                              ],
-                            )
-                          ],
+                        InkWell(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.video_call,
+                                    color: Colors.purple,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text('Room'),
+                                ],
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -291,68 +307,134 @@ class _FacebookCloneState extends State<FacebookClone> {
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWwlMjBsYW5kc2NhcGV8ZW58MHx8MHx8&w=1000&q=80'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1507038732509-8b1a9623223a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1606418578216-86cf764af1b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://thumbs.dreamstime.com/b/vertical-shot-road-magnificent-mountains-under-blue-sky-captured-california-163571053.jpg'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1606418578216-86cf764af1b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1550593829-2fa39236baa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1550593829-2fa39236baa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVydGljYWx8ZW58MHx8MHx8&w=1000&q=80'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          Stack(
-                            children: [
-                              story(
-                                  'https://images.unsplash.com/photo-1505521377774-103a8cc2f735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                              avatarInsideStory(
-                                  'https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
-                            ],
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => StoryPage(
+                                            url:
+                                                'https://images.unsplash.com/photo-1505521377774-103a8cc2f735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+                                          )));
+                            },
+                            child: Stack(
+                              children: [
+                                story(
+                                    'https://images.unsplash.com/photo-1505521377774-103a8cc2f735?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                                avatarInsideStory(
+                                    'https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+                              ],
+                            ),
                           )
                         ],
                       )),
