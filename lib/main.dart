@@ -25,7 +25,8 @@ class FacebookClone extends StatefulWidget {
 
 int _tabIndex = 0;
 
-bool liked = false;
+bool isLiked = false;
+int likeCount = 286;
 
 class _FacebookCloneState extends State<FacebookClone> {
   @override
@@ -120,7 +121,8 @@ class _FacebookCloneState extends State<FacebookClone> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       children: [
-                        InkWell(
+                        InkResponse(
+                          radius: 25,
                           onTap: () {},
                           child: CircleAvatar(
                               radius: 25,
@@ -130,15 +132,20 @@ class _FacebookCloneState extends State<FacebookClone> {
                         SizedBox(
                           width: 10,
                         ),
-                        Container(
-                          padding: EdgeInsets.only(
-                              top: 15, bottom: 15, left: 15, right: 180),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text(
-                            "What's on your mind?",
+                        InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          child: Container(
+                            padding: EdgeInsets.only(
+                                top: 15, bottom: 15, left: 15, right: 180),
+                            decoration: BoxDecoration(
+                              // color: Colors.grey[350],
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              "What's on your mind?",
+                            ),
                           ),
                         )
                       ],
@@ -153,21 +160,19 @@ class _FacebookCloneState extends State<FacebookClone> {
                       children: [
                         InkWell(
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.videocam,
-                                    color: Colors.red,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text('Live'),
-                                ],
-                              ),
-                            ],
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.videocam,
+                                  color: Colors.red,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text('Live'),
+                              ],
+                            ),
                           ),
                         ),
                         VerticalDivider(
@@ -175,21 +180,19 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         InkWell(
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.collections,
-                                    color: Colors.green,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text('Photo'),
-                                ],
-                              )
-                            ],
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.collections,
+                                  color: Colors.green,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text('Photo'),
+                              ],
+                            ),
                           ),
                         ),
                         VerticalDivider(
@@ -197,21 +200,19 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         InkWell(
                           onTap: () {},
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.video_call,
-                                    color: Colors.purple,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text('Room'),
-                                ],
-                              )
-                            ],
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.video_call,
+                                  color: Colors.purple,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text('Room'),
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -540,7 +541,7 @@ class _FacebookCloneState extends State<FacebookClone> {
                         SizedBox(
                           width: 20,
                         ),
-                        Text('Asa Graham and 286 others'),
+                        Text('Asa Graham and $likeCount others'),
                         Spacer(),
                         Text('46 comments'),
                       ],
@@ -555,24 +556,26 @@ class _FacebookCloneState extends State<FacebookClone> {
                       InkWell(
                         onTap: () {
                           setState(() {
-                            liked = !liked;
+                            isLiked = !isLiked;
+                            (isLiked) ? likeCount++ : likeCount--;
                           });
                         },
                         child: Row(
                           children: [
                             Icon(
-                              (liked)
+                              (isLiked)
                                   ? Icons.thumb_up_sharp
                                   : Icons.thumb_up_outlined,
-                              color: (liked) ? Colors.blue : null,
+                              color: (isLiked) ? Colors.blue : null,
                             ),
                             SizedBox(
                               width: 5,
                             ),
                             Text('Like',
                                 style: TextStyle(
-                                    color:
-                                        (liked) ? Colors.blue : Colors.black)),
+                                    color: (isLiked)
+                                        ? Colors.blue
+                                        : Colors.black)),
                           ],
                         ),
                       ),
