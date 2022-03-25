@@ -723,7 +723,112 @@ class _FacebookCloneState extends State<FacebookClone> {
                 ],
               ),
             ),
-            Icon(Icons.ac_unit),
+            SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(20, 10, 10, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Friends',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: Icon(Icons.search),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[350], shape: BoxShape.circle),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Chip(label: Text('Suggestions')),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Chip(label: Text('Your Friends'))
+                    ],
+                  ),
+                  Divider(
+                    thickness: 1.0,
+                  ),
+                  Row(
+                    children: [
+                      Text('Friend Requests',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18)),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        '70',
+                        style: TextStyle(color: Colors.red, fontSize: 18),
+                      ),
+                      Spacer(),
+                      Text(
+                        'See All',
+                        style: TextStyle(color: Colors.blue),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  for (var i = 0; i < 10; i++) ...[
+                    Row(
+                      children: [
+                        CircleAvatar(
+                            radius: 40,
+                            backgroundImage:
+                                AssetImage('assets/profile_picture.jpg')),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text('Noroshani Sandamali'),
+                                  Spacer(),
+                                  Text('23w'),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: ElevatedButton(
+                                        onPressed: () {},
+                                        child: Text('Confirm')),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.grey[350]),
+                                        onPressed: () {},
+                                        child: Text('Delete')),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    )
+                  ]
+                ],
+              ),
+            ),
             Icon(Icons.ac_unit),
             Icon(Icons.ac_unit),
           ],
