@@ -829,7 +829,74 @@ class _FacebookCloneState extends State<FacebookClone> {
                 ],
               ),
             ),
-            Icon(Icons.ac_unit),
+            SingleChildScrollView(
+              // padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    child: Row(
+                      children: [
+                        Text('Notifications',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18)),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Icons.search),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[350], shape: BoxShape.circle),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    child: Text(
+                      'New',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  for (var i = 0; i < 10; i++) ...[
+                    ListTile(
+                        onTap: () {},
+                        tileColor:
+                            ((i == 2) || i == 5) ? Colors.cyan[100] : null,
+                        horizontalTitleGap: 8,
+                        leading: CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/profile_picture.jpg')),
+                        title: RichText(
+                          text: TextSpan(
+                              style: new TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                              children: [
+                                TextSpan(
+                                    text: 'Hasiini Devindi ',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold)),
+                                TextSpan(text: 'Commented on your post')
+                              ]),
+                        ),
+                        subtitle: Text('2 hours ago'),
+                        trailing: Icon(Icons.more_horiz)),
+                    SizedBox(
+                      height: 10,
+                    )
+                  ]
+                ],
+              ),
+            ),
             Icon(Icons.ac_unit),
           ],
         ),
