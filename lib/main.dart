@@ -1,6 +1,7 @@
 import 'package:facebook_clone/story_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main(List<String> args) {
@@ -22,8 +23,6 @@ class FacebookClone extends StatefulWidget {
   @override
   _FacebookCloneState createState() => _FacebookCloneState();
 }
-
-int _tabIndex = 0;
 
 bool isLiked = false;
 int likeCount = 286;
@@ -68,43 +67,32 @@ class _FacebookCloneState extends State<FacebookClone> {
             ),
           ],
           bottom: TabBar(
-              onTap: (int index) {
-                setState(() => _tabIndex = index);
-              },
+              // onTap: (int index) {
+              //   setState(() => _tabIndex = index);
+              // },
               labelColor: Colors.blue,
               tabs: [
                 Tab(
-                  icon: (_tabIndex != 0)
-                      ? Icon(
-                          Icons.home_outlined,
-                          color: Colors.black,
-                        )
-                      : Icon(Icons.home, color: Colors.blue),
+                  icon: Icon(
+                    Icons.home_outlined,
+                    color: Colors.black,
+                  ),
                 ),
                 Tab(
-                  icon: (_tabIndex != 1)
-                      ? Icon(
-                          Icons.people_outline,
-                          color: Colors.black,
-                        )
-                      : Icon(Icons.people, color: Colors.blue),
-                ),
+                    icon: Icon(
+                  Icons.people_outline,
+                  color: Colors.black,
+                )),
                 Tab(
-                  icon: (_tabIndex != 2)
-                      ? Icon(
-                          Icons.notifications_outlined,
-                          color: Colors.black,
-                        )
-                      : Icon(Icons.notifications, color: Colors.blue),
-                ),
+                    icon: Icon(
+                  Icons.notifications_outlined,
+                  color: Colors.black,
+                )),
                 Tab(
-                  icon: (_tabIndex != 3)
-                      ? Icon(
-                          Icons.menu_outlined,
-                          color: Colors.black,
-                        )
-                      : Icon(Icons.menu, color: Colors.blue),
-                ),
+                    icon: Icon(
+                  Icons.menu_outlined,
+                  color: Colors.black,
+                )),
               ]),
         ),
         body: TabBarView(
@@ -780,54 +768,48 @@ class _FacebookCloneState extends State<FacebookClone> {
                   SizedBox(
                     height: 10,
                   ),
-                  for (var i = 0; i < 10; i++) ...[
-                    Row(
-                      children: [
-                        CircleAvatar(
-                            radius: 40,
-                            backgroundImage:
-                                AssetImage('assets/profile_picture.jpg')),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text('Noroshani Sandamali'),
-                                  Spacer(),
-                                  Text('23w'),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: ElevatedButton(
-                                        onPressed: () {},
-                                        child: Text('Confirm')),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Expanded(
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.grey[350]),
-                                        onPressed: () {},
-                                        child: Text('Delete')),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    )
-                  ]
+                  friendRequest('assets/people/people_1.jpg', 'Lucia Abbott'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_2.jpg', 'Sanai Trujillo'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_3.jpg', 'Fiona Maynard'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_4.jpg', 'Luca Mclean'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_5.jpg', 'Mira Matthews'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest(
+                      'assets/people/people_6.jpg', 'Jennifer Nicholson'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_7.jpg', 'Landin Charles'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_8.jpg', 'Lexi Collins'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest(
+                      'assets/people/people_1.jpg', 'Peyton Harrington'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  friendRequest('assets/people/people_2.jpg', 'Emerson Pope'),
+                  SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),
@@ -869,12 +851,12 @@ class _FacebookCloneState extends State<FacebookClone> {
                     ListTile(
                         onTap: () {},
                         tileColor:
-                            ((i == 2) || i == 5) ? Colors.cyan[100] : null,
+                            ((i == 2) || i == 5) ? Colors.blue[50] : null,
                         horizontalTitleGap: 8,
                         leading: CircleAvatar(
                             radius: 30,
                             backgroundImage:
-                                AssetImage('assets/profile_picture.jpg')),
+                                AssetImage('assets/people/people_3.jpg')),
                         title: RichText(
                           text: TextSpan(
                               style: new TextStyle(
@@ -883,7 +865,7 @@ class _FacebookCloneState extends State<FacebookClone> {
                               ),
                               children: [
                                 TextSpan(
-                                    text: 'Hasiini Devindi ',
+                                    text: 'Maddison Lutz ',
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold)),
                                 TextSpan(text: 'Commented on your post')
@@ -940,7 +922,7 @@ class _FacebookCloneState extends State<FacebookClone> {
                         radius: 30,
                         backgroundImage:
                             AssetImage('assets/profile_picture.jpg')),
-                    title: Text('Haisni Devindi',
+                    title: Text('Pamela Guerrero',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     subtitle: Text('see your profile'),
                   ),
@@ -954,10 +936,68 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Text('Your Shortcuts',
                             style: TextStyle(fontWeight: FontWeight.bold)),
-
-                        ///
-                        /// ListViewBuilder
-                        ///
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          height: 98,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              shortcutListItem(
+                                  'assets/profile_picture.jpg', 'Dog Lovers'),
+                              SizedBox(
+                                width: 20,
+                              ),
+                            ],
+                          ),
+                        ),
                         Text('All Shortcuts',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         SizedBox(
@@ -965,8 +1005,8 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Row(
                           children: [
-                            shortcutsItem(Icons.flag, 'Pages'),
-                            shortcutsItem(Icons.bookmark, 'Saved'),
+                            allShortcutCard(Icons.flag, 'Pages'),
+                            allShortcutCard(Icons.bookmark, 'Saved'),
                           ],
                         ),
                         SizedBox(
@@ -974,8 +1014,9 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Row(
                           children: [
-                            shortcutsItem(Icons.people_alt_rounded, 'Friends'),
-                            shortcutsItem(Icons.groups, 'Groups'),
+                            allShortcutCard(
+                                Icons.people_alt_rounded, 'Friends'),
+                            allShortcutCard(Icons.groups, 'Groups'),
                           ],
                         ),
                         SizedBox(
@@ -983,8 +1024,8 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Row(
                           children: [
-                            shortcutsItem(Icons.shopping_cart, 'Marketplace'),
-                            shortcutsItem(
+                            allShortcutCard(Icons.shopping_cart, 'Marketplace'),
+                            allShortcutCard(
                                 Icons.live_tv_rounded, 'Videos on watch'),
                           ],
                         ),
@@ -993,8 +1034,8 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Row(
                           children: [
-                            shortcutsItem(Icons.access_time, 'Memories'),
-                            shortcutsItem(Icons.event, 'Events'),
+                            allShortcutCard(Icons.access_time, 'Memories'),
+                            allShortcutCard(Icons.event, 'Events'),
                           ],
                         ),
                         SizedBox(
@@ -1002,8 +1043,8 @@ class _FacebookCloneState extends State<FacebookClone> {
                         ),
                         Row(
                           children: [
-                            shortcutsItem(Icons.gamepad, 'Gaming'),
-                            shortcutsItem(
+                            allShortcutCard(Icons.gamepad, 'Gaming'),
+                            allShortcutCard(
                                 Icons.person_add_alt, 'Near by Friends'),
                           ],
                         ),
@@ -1055,7 +1096,7 @@ class _FacebookCloneState extends State<FacebookClone> {
                       leading:
                           Icon(Icons.settings, color: Colors.grey, size: 30),
                       title: Text(
-                        'Community resources',
+                        'Settings and privacy',
                         style: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ),
@@ -1089,7 +1130,7 @@ class _FacebookCloneState extends State<FacebookClone> {
 }
 
 // settings page all shortcut card
-Widget shortcutsItem(icon, title) {
+Widget allShortcutCard(icon, title) {
   return Expanded(
     child: Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -1103,12 +1144,87 @@ Widget shortcutsItem(icon, title) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(icon),
+              SizedBox(
+                height: 5,
+              ),
               Text(title, style: TextStyle(fontWeight: FontWeight.bold))
             ],
           ),
         ),
       ),
     ),
+  );
+}
+
+Widget friendRequest(imageUrl, name) {
+  return Row(
+    children: [
+      CircleAvatar(radius: 40, backgroundImage: AssetImage(imageUrl)),
+      SizedBox(
+        width: 10,
+      ),
+      Expanded(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(name),
+                Spacer(),
+                Text(
+                  '23w',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child:
+                      ElevatedButton(onPressed: () {}, child: Text('Confirm')),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                      style:
+                          ElevatedButton.styleFrom(primary: Colors.grey[350]),
+                      onPressed: () {},
+                      child: Text('Delete')),
+                )
+              ],
+            )
+          ],
+        ),
+      )
+    ],
+  );
+}
+
+Widget shortcutListItem(image, text) {
+  return Column(
+    children: [
+      Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+      SizedBox(
+        height: 5,
+      ),
+      Container(
+        width: 70,
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 12),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    ],
   );
 }
 
