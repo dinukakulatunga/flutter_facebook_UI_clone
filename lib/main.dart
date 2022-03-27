@@ -746,7 +746,9 @@ class _FacebookCloneState extends State<FacebookClone> {
                   ),
                   Row(
                     children: [
-                      Chip(label: Text('Suggestions')),
+                      Container(
+                        child: Chip(label: Text('Suggestions')),
+                      ),
                       SizedBox(
                         width: 10,
                       ),
@@ -830,7 +832,6 @@ class _FacebookCloneState extends State<FacebookClone> {
               ),
             ),
             SingleChildScrollView(
-              // padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -840,7 +841,7 @@ class _FacebookCloneState extends State<FacebookClone> {
                       children: [
                         Text('Notifications',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18)),
+                                fontWeight: FontWeight.bold, fontSize: 20)),
                         Spacer(),
                         Container(
                           padding: EdgeInsets.all(5),
@@ -897,12 +898,218 @@ class _FacebookCloneState extends State<FacebookClone> {
                 ],
               ),
             ),
-            Icon(Icons.ac_unit),
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Menu',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Icons.settings),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[350], shape: BoxShape.circle),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          child: Icon(Icons.search),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[350], shape: BoxShape.circle),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ListTile(
+                    onTap: () {},
+                    horizontalTitleGap: 8,
+                    leading: CircleAvatar(
+                        radius: 30,
+                        backgroundImage:
+                            AssetImage('assets/profile_picture.jpg')),
+                    title: Text('Haisni Devindi',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text('see your profile'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Divider(
+                          thickness: 1.0,
+                        ),
+                        Text('Your Shortcuts',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+
+                        ///
+                        /// ListViewBuilder
+                        ///
+                        Text('All Shortcuts',
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            shortcutsItem(Icons.flag, 'Pages'),
+                            shortcutsItem(Icons.bookmark, 'Saved'),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            shortcutsItem(Icons.people_alt_rounded, 'Friends'),
+                            shortcutsItem(Icons.groups, 'Groups'),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            shortcutsItem(Icons.shopping_cart, 'Marketplace'),
+                            shortcutsItem(
+                                Icons.live_tv_rounded, 'Videos on watch'),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            shortcutsItem(Icons.access_time, 'Memories'),
+                            shortcutsItem(Icons.event, 'Events'),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            shortcutsItem(Icons.gamepad, 'Gaming'),
+                            shortcutsItem(
+                                Icons.person_add_alt, 'Near by Friends'),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.grey[350]),
+                              onPressed: () {},
+                              child: Text(
+                                'See more',
+                                style: TextStyle(color: Colors.black),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    thickness: 1.0,
+                  ),
+                  ListTile(
+                      contentPadding: EdgeInsets.only(right: 16, left: 20),
+                      leading: Icon(FontAwesomeIcons.handshake,
+                          size: 25, color: Colors.grey),
+                      title: Text(
+                        'Community resources',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Icon(Icons.expand_more)),
+                  ListTile(
+                      contentPadding: EdgeInsets.only(right: 16, left: 20),
+                      leading: Icon(
+                        Icons.help_outline,
+                        color: Colors.grey,
+                        size: 30,
+                      ),
+                      title: Text(
+                        'Help & support',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Icon(Icons.expand_more)),
+                  ListTile(
+                      contentPadding: EdgeInsets.only(right: 16, left: 20),
+                      leading:
+                          Icon(Icons.settings, color: Colors.grey, size: 30),
+                      title: Text(
+                        'Community resources',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Icon(Icons.expand_more)),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        style:
+                            ElevatedButton.styleFrom(primary: Colors.grey[350]),
+                        onPressed: () {},
+                        child: Text(
+                          'Log Out',
+                          style: TextStyle(color: Colors.black),
+                        )),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
     );
   }
+}
+
+// settings page all shortcut card
+Widget shortcutsItem(icon, title) {
+  return Expanded(
+    child: Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        splashColor: Colors.blue.withAlpha(30),
+        onTap: () {},
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(icon),
+              Text(title, style: TextStyle(fontWeight: FontWeight.bold))
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 // story
