@@ -1,3 +1,4 @@
+import 'package:facebook_clone/profile_view.dart';
 import 'package:facebook_clone/story_page_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -916,7 +917,12 @@ class _FacebookCloneState extends State<FacebookClone> {
                     height: 10,
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()));
+                    },
                     horizontalTitleGap: 8,
                     leading: CircleAvatar(
                         radius: 30,
