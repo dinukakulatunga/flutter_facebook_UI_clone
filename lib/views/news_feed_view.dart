@@ -47,7 +47,6 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
                     padding: EdgeInsets.only(
                         top: 15, bottom: 15, left: 15, right: 180),
                     decoration: BoxDecoration(
-                      // color: Colors.grey[350],
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -153,7 +152,7 @@ class _NewsFeedPageState extends State<NewsFeedPage> {
                         onPressed: () {},
                         child: Text(
                           'Create Room',
-                          style: TextStyle(color: Colors.blue.withOpacity(0.8)),
+                          style: TextStyle(color: Color(0xFFBACEDE)),
                         ),
                       ),
                       SizedBox(
