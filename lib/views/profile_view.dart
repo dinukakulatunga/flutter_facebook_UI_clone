@@ -120,9 +120,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       );
                     }),
                   ),
-                  // SizedBox(
-                  //   height: 125,
-                  // ),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
@@ -482,7 +479,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           Container(
                             width: screenWidth / 3.0 - 12.0,
                             child: Text(
-                              'Dinuka Kulathunga',
+                              'Emerson Jaelyn',
                             ),
                           )
                         ],
